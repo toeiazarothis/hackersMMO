@@ -11,7 +11,7 @@
     <title>Invitation</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../SitePrincipalFreelance/css/agency.css">
+    <link rel="stylesheet" href="css/agency.css">
 
   </head>
   <body id="page-top" class="index">
