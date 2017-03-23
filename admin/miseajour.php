@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-md-4 col-md-offset-4 col-xs-12 text-center" id="formulaire_joueur_for_maj"></div>
                   </div>
-                	
+                  <!-- doit normalement s'afficher ici un formulaire pour modifier les joueurs de la BDD -->
                 	<div class="form-group">
                 		<div class="col-sm-8 col-sm-offset-2">
                       <input name="reset"  type="reset" value="Effacer" class="btn btn-danger">
