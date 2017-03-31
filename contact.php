@@ -32,6 +32,8 @@
             <li><a href="histoire.php" class="text-center">Histoire</a></li>
             <li><a href="tutoriel.php" class="text-center">Tutoriel</a></li>
             <li><a href="contact.php" class="text-center">Contact</a></li>
+            <li><a href="ajout.php"><i class="fa fa-plus"></i></a></li>
+            <li><a href="ipliste.php"><i class="fa fa-database"></i></a></li>
           </ul>
         </div>
       </div>
@@ -126,7 +128,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
               <img src="" class="img-responsive img-circle" alt="">
@@ -157,7 +159,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 text-center">
             <p class="large text-muted">Si vous avez la moindre question par apport au jeux n'hesitez pas a venir au seins de l'application pour nous trouver ou bien sur le serveur <strong>Discord</strong>.</p>

@@ -32,6 +32,8 @@
             <li><a href="histoire.php" class="text-center">Histoire</a></li>
             <li><a href="tutoriel.php" class="text-center">Tutoriel</a></li>
             <li><a href="contact.php" class="text-center">Contact</a></li>
+            <li><a href="ajout.php"><i class="fa fa-plus"></i></a></li>
+            <li><a href="ipliste.php"><i class="fa fa-database"></i></a></li>
           </ul>
         </div>
       </div>

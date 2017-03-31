@@ -32,6 +32,8 @@
             <li><a href="histoire.php" class="text-center">Histoire</a></li>
             <li><a href="tutoriel.php" class="text-center">Tutoriel</a></li>
             <li><a href="contact.php" class="text-center">Contact</a></li>
+            <li><a href="ajout.php"><i class="fa fa-plus"></i></a></li>
+            <li><a href="ipliste.php"><i class="fa fa-database"></i></a></li>
           </ul>
         </div>
       </div>
@@ -78,18 +80,18 @@
 
 
   <!-- Footer -->
-  <?php include("../footer.php");?>
+  <?php include("footer.php");?>
   <!-- Fin footer -->
   <!-- jQuery -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <!-- Plugin JavaScript -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <!-- Contact Form JavaScript -->
-  <script src="../js/jqBootstrapValidation.js"></script>
-  <script src="../js/contact_me.js"></script>
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
   <!-- Theme JavaScript -->
-  <script src="../js/agency.min.js"></script>
+  <script src="js/agency.min.js"></script>
 </body>
 </html>

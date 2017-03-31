@@ -43,15 +43,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index.php" class="text-center">Accueil</a></li>
-            <li><a href="../histoire.php" class="text-center">Histoire</a></li>
-            <li><a href="../tutoriel.php" class="text-center">Tutoriel</a></li>
-            <li><a href="../contact.php" class="text-center">Contact</a></li>
+            <li><a href="index.php" class="text-center">Accueil</a></li>
+            <li><a href="histoire.php" class="text-center">Histoire</a></li>
+            <li><a href="tutoriel.php" class="text-center">Tutoriel</a></li>
+            <li><a href="contact.php" class="text-center">Contact</a></li>
+            <li><a href="ajout.php"><i class="fa fa-plus"></i></a></li>
+            <li><a href="ipliste.php"><i class="fa fa-database"></i></a></li>
           </ul>
         </div>
       </div>
     </nav>
-    <!--  -->
+    <!-- Header -->
     <header>
       <div class="container">
         <div class="intro-text">
@@ -62,10 +64,9 @@
         </div>
       </div>
     </header>
+    <!-- Header -->
 
-    <!-- Fin de la liste des reseaux sociaux -->
-    <!-- Formulaire ajout joueur et datacenter -->
-
+    <!-- Formulaire ajout joueur -->
     <section id="Ajout">
       <div class="container text-center">
         <h2 class="section-heading">Ajouter des informations</h2>
@@ -134,71 +135,24 @@
                 </form>
               </div>
             </div>
-            <br>
-
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseDatacenter" aria-expanded="false" aria-controls="collapseDatacenter">Ajout Nouveau Datacenter</button> <br>
-            <div class="collapse" id="collapseDatacenter">
-              <div class="well">
-                <form class="form-horizontal" role="form" method="post" action="traitement0.php">
-                  <div class="form-group">
-                		<label for="name" class="col-sm-2 control-label">IP</label>
-                		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="IP" name="IP" placeholder="IP" value="" required="">
-                		</div>
-                	</div>
-                  <div class="form-group">
-                		<label for="name" class="col-sm-2 control-label">Guilde</label>
-                		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Blason_Guilde" name="Blason_Guilde" placeholder="Abreviations de la Guilde" value="" required="">
-                		</div>
-                	</div>
-                	<div class="form-group">
-                		<label for="email" class="col-sm-2 control-label">Leader</label>
-                		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Leader" name="Leader" placeholder="Leader" value="" required="">
-                		</div>
-                	</div>
-                  <div class="form-group">
-                		<label for="name" class="col-sm-2 control-label">Co-Leader</label>
-                		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Co-Leader" name="Co-Leader" placeholder="Co-Leader" value="" required="">
-                		</div>
-                	</div>
-                  <div class="form-group">
-                		<label for="name" class="col-sm-2 control-label">Information</label>
-                		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Information" name="Information" placeholder="Information" value="" required="">
-                		</div>
-                	</div>
-                	<div class="form-group">
-                		<div class="col-sm-8 col-sm-offset-2">
-                      <input name="reset"  type="reset" value="Effacer" class="btn btn-danger">
-                      <input name="submit" type="submit" value="Envoyer"class="btn btn-success">
-                		</div>
-                	</div>
-                </form>
-              </div>
-            </div>
-
-
           </div>
         </div>
       </div>
     </section>
-    <!-- Fin du formulaire de contact -->
+    <!-- Fin du formulaire d'ajout -->
     <!-- Footer -->
-    <?php include("../footer.php");?>
+    <?php include("footer.php");?>
     <!-- Fin footer -->
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="vendor/jquery/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <!-- Contact Form JavaScript -->
-    <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
     <!-- Theme JavaScript -->
-    <script src="../js/agency.js"></script>
+    <script src="js/agency.js"></script>
   </body>
 </html>
