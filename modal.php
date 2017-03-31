@@ -41,7 +41,7 @@
   </div>
 
   <!-- Portfolio Modal Prochain client -->
-    <div class="portfolio-modal modal fade" id="Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="Modal2" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">

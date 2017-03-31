@@ -10,7 +10,7 @@
     <?php include("../model/function.php") ?>
 
     <title>Invitation</title>
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/agency.css">
 
@@ -59,13 +59,13 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Inconnu</th>
-                  <th>Pseudo</th>
-                  <th>IP</th>
-                  <th>Reputation</th>
-                  <th>Rang particulier</th>
-                  <th>Information bonus</th>
-                  <th>Guilde</th>
+                  <th class="text-center">Pseudo</th>
+                  <th class="text-center">IP</th>
+                  <th class="text-center">Reputation</th>
+                  <th class="text-center">Rang particulier</th>
+                  <th class="text-center">Information bonus</th>
+                  <th class="text-center">Nom de Guilde</th>
+                  <th class="text-center">Blason Guilde</th>
                 </tr>
               </thead>
               <?php echo listeJoueurs()?>

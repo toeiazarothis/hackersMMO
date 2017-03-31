@@ -10,6 +10,7 @@
 
     <title>Invitation</title>
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/agency.css">
 
@@ -77,14 +78,14 @@
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img src="img/portfolio/TSR/tsr.jpg" class="img-responsive" alt="">
+              <img src="img/tutoriel/Technique_Bounce.jpg" class="img-responsive" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Maitriser la technique du "Bounce"</h4>
+              <h4>Comprendre et maitriser la technique du "Bounce"</h4>
               <p class="text-muted">Texte</p>
             </div>
           </div>
-          <!--
+
           <div class="col-md-4 col-sm-4 portfolio-item">
             <a href="#Modal3" class="portfolio-link" data-toggle="modal">
               <div class="portfolio-hover">
@@ -92,13 +93,13 @@
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img src="img/portfolio/POGO3/pogo3.jpg" class="img-responsive" alt="">
+              <img src="img/tutoriel/Hack_Guilde.jpg" class="img-responsive" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Po Go 3</h4>
-              <p class="text-muted">Website</p>
+              <h4>Comment hacker une guilde et lancer une attaque DDOS</h4>
+              <p class="text-muted">Texte</p>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </section>

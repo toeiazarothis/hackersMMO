@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="ToeiAzarothis">
     <link rel="author" href="humans.txt"/>
+    <?php include("model/function.php") ?>
 
     <title>Invitation</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -35,41 +36,60 @@
         </div>
       </div>
     </nav>
-    <!--  -->
+
+    <!-- Message d'accueil -->
     <header>
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Bonjour!</div>
-          <div class="intro-heading">bienvenue sur le site de la FHC</div>
-          <a href="#suite" class="page-scroll btn btn-xl">Suivre</a>
+          <div class="intro-heading">
+            Quoi qu'il arrive reste positif il faut i croire.
+          </div>
+          <a href="#ipliste" class="page-scroll btn btn-xl">Voir les futurs victime</a>
         </div>
       </div>
     </header>
-    <section id="suite">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Pour rejoindre DISCORD</h2>
-            <span><i class="fa fa-commenting-o fa-5x"></i></span><br><br>
-            <a href="https://discord.gg/P8zqwUJ" class="btn btn-success btn-lg">Rejoindre le serveur</a>
+    <!-- FIN message d'accueil -->
+
+    <section id="ipliste">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>Liste de victimes potentiel</h2>
+          <div class="col-md-12 text-center table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center">Pseudo</th>
+                  <th class="text-center">IP</th>
+                  <th class="text-center">Reputation</th>
+                  <th class="text-center">Rang particulier</th>
+                  <th class="text-center">Information bonus</th>
+                  <th class="text-center">Nom de Guilde</th>
+                  <th class="text-center">Blason Guilde</th>
+                </tr>
+              </thead>
+              <?php echo listeJoueurs()?>
+            </table>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
-    <?php include('footer.php') ?>
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-    <!-- Theme JavaScript -->
-    <script src="js/agency.js"></script>
-
-  </body>
+  <!-- Footer -->
+  <?php include("../footer.php");?>
+  <!-- Fin footer -->
+  <!-- jQuery -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <!-- Contact Form JavaScript -->
+  <script src="../js/jqBootstrapValidation.js"></script>
+  <script src="../js/contact_me.js"></script>
+  <!-- Theme JavaScript -->
+  <script src="../js/agency.min.js"></script>
+</body>
 </html>

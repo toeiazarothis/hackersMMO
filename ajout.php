@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <?php include("../model/function.php") ?>
+    <?php include("model/function.php") ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -18,7 +18,7 @@
     <meta property="og:url" content="http://patrick.hol.es/CV/contact.php">
     <meta property="og:image" content="http://patrick.hol.es/CV/img/header/header-bg.jpg"> -->
     <title>La creation</title>
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -28,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
     <!-- Theme CSS -->
-    <link href="../css/agency.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
   </head>
   <body id="page-top" class="index">
 

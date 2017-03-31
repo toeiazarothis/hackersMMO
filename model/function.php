@@ -4,17 +4,17 @@ include('db.php');
 function listeJoueurs(){
   $connexion = connectionDB();
   $texte = '';
-  $listeNew = $connexion->query('SELECT * FROM `HackMMO-Joueur`');
+  $listeNew = $connexion->query('SELECT * FROM `HackMMO-Joueur` ORDER BY `HackMMO-Joueur`.`Pseudo`ASC');
   while ($result = $listeNew->fetch()) {
     $texte .=
     '<tr>
-      <td>'.$result['Inconnu'].'</td>
       <td>'.$result['Pseudo'].'</td>
       <td>'.$result['IP'].'</td>
       <td>'.$result['Reputation'].'</td>
       <td>'.$result['Rang_Special'].'</td>
       <td>'.$result['Informations_Sup'].'</td>
-      <td>'.$result['Guilde'].'</td>
+      <td>'.$result['Nom_De_Guilde'].'</td>
+      <td>'.$result['Blason_Guilde'].'</td>
     </tr>';}
   return $texte;
 }
@@ -38,17 +38,12 @@ if (isset ($_POST['formulaire_joueur_for_maj'])) {
 // fonction permettant d'afficher le formulaire pour la MAJ élève
 function showFormulaireForMajJoueurForAdmin ($Player) {
 	$bdd = connectionDB ();
-	$reponse = $bdd->query("SELECT `Inconnu`, `Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Guilde` FROM HackMMO-Joueur WHERE id=$Player");
+	$reponse = $bdd->query("SELECT Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Blason_Guilde` FROM HackMMO-Joueur WHERE id=$Player");
 	$donnees = $reponse->fetch();
 	$texte =
   '<form action="admin" method="post">
 		<div class="form-group">
 		<fieldset disabled>
-		<label class="sr-only" for="exampleInputAmount">Inconnu</label>
-		<div class="input-group">
-			<div class="input-group-addon">Inconnu</div>
-			<input type="text" name="Inconnu" class="form-control"  value="'.$donnees['Inconnu'].'">
-		</div>
 		<label class="sr-only" for="exampleInputAmount">Pseudo du joueur</label>
 		<div class="input-group">
 			<div class="input-group-addon">Pseudo</div>
@@ -68,7 +63,7 @@ function showFormulaireForMajJoueurForAdmin ($Player) {
 			<label class="sr-only" for="exampleInputAmount">Rang special</label>
 			<div class="input-group">
 				<div class="input-group-addon">Rang Special du joueur</div>
-        <select class="form-control" id="Rang_special" name="Rang_special" required="">
+        <select class="form-control" id="Rang_Special" name="Rang_Special" required="">
           <option>Joueur Lambda</option>
           <option>Membre de la FHC</option>
           <option>Top 100</option>
@@ -81,10 +76,10 @@ function showFormulaireForMajJoueurForAdmin ($Player) {
 				<div class="input-group-addon">Informations Sup</div>
 				<input type="text" name="Informations_Sup" class="form-control"  value="'.$donnees['Informations_Sup'].'">
 			</div>
-			<label class="sr-only" for="exampleInputAmount">Guilde</label>
+			<label class="sr-only" for="exampleInputAmount">Blason_Guilde</label>
 			<div class="input-group">
-				<div class="input-group-addon">Guilde du joueur</div>
-				<input type="email" name="Guilde" class="form-control"  value="'.$donnees['Guilde'].'">
+				<div class="input-group-addon">Blason_Guilde du joueur</div>
+				<input type="email" name="Blason_Guilde" class="form-control"  value="'.$donnees['Blason_Guilde'].'">
 			</div>
 			<br>
 			<div class="row">
@@ -102,14 +97,14 @@ function ajoutJoueurs (){
   $connexion = connectionDB();
 
   $ajout = $connexion->exec('INSERT INTO `HackMMO-Joueur`
-    (`Inconnu`, `Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Guilde`)
-    VALUES ("'.$_POST["Inconnu"].'",
-            "'.$_POST["Pseudo"].'",
+    (`Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
+    VALUES ("'.$_POST["Pseudo"].'",
             "'.$_POST["IP"].'",
             "'.$_POST["Reputation"].'",
             "'.$_POST["Rang_Special"].'",
             "'.$_POST["Informations_Sup"].'",
-            "'.$_POST["Guilde"].'")');
+            "'.$_POST["Nom_De_Guilde"].'",
+            "'.$_POST["Blason_Guilde"].'")');
 
   if ($ajout == FALSE){
         exit('erreur');//echec envoie
@@ -133,7 +128,7 @@ function listeDatacenter(){
     $texte .=
     '<tr>
       <td>'.$result['IP'].'</td>
-      <td>'.$result['Guilde'].'</td>
+      <td>'.$result['Blason_Guilde'].'</td>
       <td>'.$result['Leader'].'</td>
       <td>'.$result['Co-Leader'].'</td>
       <td>'.$result['Information'].'</td>
@@ -145,9 +140,9 @@ function ajoutDatacenter (){
   $connexion = connectionDB();
 
   $ajout = $connexion->exec('INSERT INTO `HackMMO-Datacenter`
-    (`IP`, `Guilde`, `Leader`, `Co-Leader`, `Information`)
+    (`IP`, `Blason_Guilde`, `Leader`, `Co-Leader`, `Information`)
     VALUES ("'.$_POST["IP"].'",
-            "'.$_POST["Guilde"].'",
+            "'.$_POST["Blason_Guilde"].'",
             "'.$_POST["Leader"].'",
             "'.$_POST["Co-Leader"].'",
             "'.$_POST["Information"].'")');
@@ -169,14 +164,14 @@ function ajoutDatacenter (){
 
 function miseajourJoueur(){
   $connexion = connectionDB();
-  $majJoueur = $connexion->query('UPDATE `HackMMO-Joueur` SET (`Inconnu`, `Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Guilde`)
-  VALUES ("'.$_POST["Inconnu"].'",
-          "'.$_POST["Pseudo"].'",
+  $majJoueur = $connexion->query('UPDATE `HackMMO-Joueur` SET (Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
+  VALUES ("'.$_POST["Pseudo"].'",
           "'.$_POST["IP"].'",
           "'.$_POST["Reputation"].'",
           "'.$_POST["Rang_Special"].'",
           "'.$_POST["Informations_Sup"].'",
-          "'.$_POST["Guilde"].'")');
+          "'.$_POST["Nom_De_Guilde"].'",
+          "'.$_POST["Blason_Guilde"].'")');
 
 if ($ajout == FALSE){
       exit('erreur');//echec envoie
@@ -194,10 +189,10 @@ if ($ajout == FALSE){
 }
 
 
-function supprimerEleve(){
+function supprimerJoueur(){
   $connexion = connectionDB();
 
-  $supprimer =$connexion->query('DELETE FROM `Hackersmmo` WHERE `Pseudo` = '.$_POST["delJoueur"].'');
+  $supprimer =$connexion->query('DELETE FROM `HackMMO-Joueur` WHERE `Pseudo` = '.$_POST["delJoueur"].'');
 
   echo "Le joueur est bien supprimer du systeme";
 }

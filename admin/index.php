@@ -9,8 +9,8 @@
     <link rel="author" href="humans.txt"/>
 
     <title>Invitation</title>
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/agency.css">
 
@@ -53,18 +53,16 @@
         <div class="row">
           <div class="col-md-4 text-center">
             <h3>Pour rejoindre la liste des joueur</h3>
-            <span><i class="fa fa-users fa-5x"></i></span><br>
-            <a href="ipliste.php">Ip Joueur</a>
+            <span><a href="ipliste.php"><i class="fa fa-users fa-5x"></i></a></span>
           </div>
           <div class="col-md-4 text-center">
             <h3>Pour rejoindre la liste des datacenter</h3>
-            <span><i class="fa fa-database fa-5x"></i></span><br>
-            <a href="datacenter.php">Ip Datacenter</a>
+            <span><a href="datacenter.php"><i class="fa fa-database fa-5x"></i></a></i></span>
+
           </div>
           <div class="col-md-4 text-center">
             <h3>Pour rejoindre le systeme d'ajout</h3>
-            <span><i class="fa fa-plus fa-5x"></i></span><br>
-            <a href="ajout.php">Ajouter</a>
+            <span><a href="ajout.php"><i class="fa fa-plus fa-5x"></i></a></span>
           </div>
         </div>
       </div>
