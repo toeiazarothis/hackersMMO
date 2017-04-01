@@ -57,9 +57,8 @@
     <header>
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading">
-            Quoi qu'il arrive reste positif il faut i croire.
-          </div>
+          <div class="intro-lead-in">Bonjour!</div>
+          <div class="intro-heading">Quoi qu'il arrive reste positif il faut i croire.</div>
           <a href="#Ajout" class="page-scroll btn btn-xl">Ajouter des informations</a>
         </div>
       </div>
