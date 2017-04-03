@@ -64,11 +64,11 @@ function showFormulaireForMajJoueurForAdmin ($Player) {
 			<div class="input-group">
 				<div class="input-group-addon">Rang Special du joueur</div>
         <select class="form-control" id="Rang_Special" name="Rang_Special" required="">
-          <option>Joueur Lambda</option>
-          <option>Membre de la FHC</option>
-          <option>Top 100</option>
-          <option>Moderateur</option>
-          <option>Developpeur</option>
+          <option value="Joueur Lambda">Joueur Lambda</option>
+          <option value="Membre de la FHC">Membre de la FHC</option>
+          <option value="Top 100">Top 100</option>
+          <option value="Moderateur">Moderateur</option>
+          <option value="Developpeur">Developpeur</option>
         </select>
 			</div>
 			<label class="sr-only" for="exampleInputAmount">Informations Sup</label>
@@ -128,6 +128,7 @@ function listeDatacenter(){
     $texte .=
     '<tr>
       <td>'.$result['IP'].'</td>
+      <td>'.$result['Nom_De_Guilde'].'</td>
       <td>'.$result['Blason_Guilde'].'</td>
       <td>'.$result['Leader'].'</td>
       <td>'.$result['Co-Leader'].'</td>
@@ -140,8 +141,9 @@ function ajoutDatacenter (){
   $connexion = connectionDB();
 
   $ajout = $connexion->exec('INSERT INTO `HackMMO-Datacenter`
-    (`IP`, `Blason_Guilde`, `Leader`, `Co-Leader`, `Information`)
+    (`IP`, `Nom_De_Guilde`, `Blason_Guilde`, `Leader`, `Co-Leader`, `Information`)
     VALUES ("'.$_POST["IP"].'",
+            "'.$_POST["Nom_De_Guilde"].'",
             "'.$_POST["Blason_Guilde"].'",
             "'.$_POST["Leader"].'",
             "'.$_POST["Co-Leader"].'",
@@ -155,7 +157,7 @@ function ajoutDatacenter (){
     '<header class="bg bg-darkest-gray">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading">Le Data center a bien été enregistré</div>
+          <div class="intro-heading">Le Datacenter à bien été enregistré</div>
           <a href="index.php" class="page-scroll btn btn-xl">Accueil</a>
         </div>
       </div>
