@@ -56,8 +56,11 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2>Liste de victimes potentiel</h2>
-          <div class="col-md-12 text-center table-responsive">
-            <table class="table table-hover">
+					<div class="col-md-12 text-center table-responsive">
+						<select id="playerSelect">
+							<?php echo listeDeToutLesJoueurs(); ?>
+						</select>
+						<table class="table table-hover" style="display: none" id="playerSelect-table">
               <thead>
                 <tr>
                   <th class="text-center">Pseudo</th>
@@ -69,9 +72,17 @@
                   <th class="text-center">Blason Guilde</th>
                 </tr>
               </thead>
-              <?php echo listeJoueurs()?>
+              <tr>
+								<td id="playerSelect-table-pseudo"></td>
+								<td id="playerSelect-table-ip"></td>
+								<td id="playerSelect-table-reputation"></td>
+								<td id="playerSelect-table-rang_particulier"></td>
+								<td id="playerSelect-table-information_bonus"></td>
+								<td id="playerSelect-table-nom_de_guilde"></td>
+								<td id="playerSelect-table-blason_guilde"></td>
+							</tr>
             </table>
-          </div>
+					</div>
         </div>
       </div>
     </div>
@@ -81,6 +92,8 @@
   <!-- Footer -->
   <?php include("footer.php");?>
   <!-- Fin footer -->
+	<!-- Script selection joueur -->
+	<script src="js/playerSelect.js"></script>
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->

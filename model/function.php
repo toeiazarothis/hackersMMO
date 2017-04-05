@@ -22,13 +22,32 @@ function listeJoueurs(){
 // fonction pour afficher la liste des classes
 function listeDeToutLesJoueurs () {
 	$connexion = connectionDB();
-	$reponse = $connexion->query("SELECT Pseudo FROM `HackMMO-Joueur`");
-	$texte = '<option value="">Selectionner un joueur</option>';
+	$reponse = $connexion->query("SELECT `Pseudo` FROM `HackMMO-Joueur`");
+	$texte = '<option value="" selected>Selectionner un joueur</option>';
 	while ($donnees = $reponse->fetch())
 	{
 		$texte .= '<option value="'.$donnees['Pseudo'].'">'.$donnees['Pseudo'].'</option>';
 	}
 	return $texte;
+}
+
+//Retourne les info d'un joueur au format Json
+function jsonJoueur($pseudo){
+	$bdd = connectionDB();
+	$reponse = $bdd->prepare("SELECT * FROM `HackMMO-Joueur` WHERE `Pseudo` = ?");
+	$reponse->execute(array(htmlspecialchars($pseudo)));
+
+	$data = $reponse->fetch();
+
+	return json_encode(array(
+		'Pseudo' => $data['Pseudo'],
+		'IP' => $data['IP'],
+		'Reputation' => $data['Reputation'],
+		'Rang_Special' => $data['Rang_Special'],
+		'Informations_Sup' => $data['Informations_Sup'],
+		'Blason_Guilde' => $data['Blason_Guilde'],
+		'Nom_De_Guilde' => $data['Nom_De_Guilde'],
+	));
 }
 
 // condition permettant de lancer la fonction showFormulaireForMajEleveForAdmin
@@ -38,7 +57,8 @@ if (isset ($_POST['formulaire_joueur_for_maj'])) {
 // fonction permettant d'afficher le formulaire pour la MAJ élève
 function showFormulaireForMajJoueurForAdmin ($Player) {
 	$bdd = connectionDB ();
-	$reponse = $bdd->query("SELECT Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Blason_Guilde` FROM HackMMO-Joueur WHERE id=$Player");
+	$reponse = $bdd->prepare("SELECT `Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Blason_Guilde` FROM `HackMMO-Joueur` WHERE `Pseudo`=?");
+	$reponse->execute(array(htmlspecialchars($Player)));
 	$donnees = $reponse->fetch();
 	$texte =
   '<form action="admin" method="post">
@@ -96,15 +116,19 @@ function showFormulaireForMajJoueurForAdmin ($Player) {
 function ajoutJoueurs (){
   $connexion = connectionDB();
 
-  $ajout = $connexion->exec('INSERT INTO `HackMMO-Joueur`
-    (`Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
-    VALUES ("'.$_POST["Pseudo"].'",
-            "'.$_POST["IP"].'",
-            "'.$_POST["Reputation"].'",
-            "'.$_POST["Rang_Special"].'",
-            "'.$_POST["Informations_Sup"].'",
-            "'.$_POST["Nom_De_Guilde"].'",
-            "'.$_POST["Blason_Guilde"].'")');
+		$ajout = $connexion->prepare('INSERT INTO `HackMMO-Joueur`
+		   (`Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
+		   VALUES (?, ?, ?, ?, ?, ?, ?)');
+
+		$ajout->execute(array(
+			htmlspecialchars($_POST["Pseudo"]),
+			htmlspecialchars($_POST["IP"]),
+			htmlspecialchars($_POST["Reputation"]),
+			htmlspecialchars($_POST["Rang_Special"]),
+			htmlspecialchars($_POST["Informations_Sup"]),
+			htmlspecialchars($_POST["Nom_De_Guilde"]),
+			htmlspecialchars($_POST["Blason_Guilde"])
+		));
 
   if ($ajout == FALSE){
         exit('erreur');//echec envoie
@@ -140,14 +164,18 @@ function listeDatacenter(){
 function ajoutDatacenter (){
   $connexion = connectionDB();
 
-  $ajout = $connexion->exec('INSERT INTO `HackMMO-Datacenter`
-    (`IP`, `Nom_De_Guilde`, `Blason_Guilde`, `Leader`, `Co-Leader`, `Information`)
-    VALUES ("'.$_POST["IP"].'",
-            "'.$_POST["Nom_De_Guilde"].'",
-            "'.$_POST["Blason_Guilde"].'",
-            "'.$_POST["Leader"].'",
-            "'.$_POST["Co-Leader"].'",
-            "'.$_POST["Information"].'")');
+	$ajout = $connexion->prepare('INSERT INTO `HackMMO-Datacenter`
+	    (`IP`, `Nom_De_Guilde`, `Blason_Guilde`, `Leader`, `Co-Leader`, `Information`)
+	    VALUES (?, ?, ?, ?, ?, ?)');
+
+	$ajout->execute(array(
+		htmlspecialchars($_POST['IP']),
+		htmlspecialchars($_POST['Nom_De_Guilde']),
+		htmlspecialchars($_POST['Blason_Guilde']),
+		htmlspecialchars($_POST['Leader']),
+		htmlspecialchars($_POST['Co-Leader']),
+		htmlspecialchars($_POST['Information'])
+	));
 
   if ($ajout == FALSE){
         exit('erreur');//echec envoie
@@ -166,14 +194,19 @@ function ajoutDatacenter (){
 
 function miseajourJoueur(){
   $connexion = connectionDB();
-  $majJoueur = $connexion->query('UPDATE `HackMMO-Joueur` SET (Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
-  VALUES ("'.$_POST["Pseudo"].'",
-          "'.$_POST["IP"].'",
-          "'.$_POST["Reputation"].'",
-          "'.$_POST["Rang_Special"].'",
-          "'.$_POST["Informations_Sup"].'",
-          "'.$_POST["Nom_De_Guilde"].'",
-          "'.$_POST["Blason_Guilde"].'")');
+
+	$majJoueur = $connexion->prepare('UPDATE `HackMMO-Joueur` SET (Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
+	VALUES (?, ?, ?, ?, ?, ?, ?)');
+
+	$majJoueur->execute(array(
+		htmlspecialchars($_POST["Pseudo"]),
+		htmlspecialchars($_POST["IP"]),
+		htmlspecialchars($_POST["Reputation"]),
+		htmlspecialchars($_POST["Rang_Special"]),
+		htmlspecialchars($_POST["Informations_Sup"]),
+		htmlspecialchars($_POST["Nom_De_Guilde"]),
+		htmlspecialchars($_POST["Blason_Guilde"])
+	));
 
 if ($ajout == FALSE){
       exit('erreur');//echec envoie
@@ -194,7 +227,9 @@ if ($ajout == FALSE){
 function supprimerJoueur(){
   $connexion = connectionDB();
 
-  $supprimer =$connexion->query('DELETE FROM `HackMMO-Joueur` WHERE `Pseudo` = '.$_POST["delJoueur"].'');
+  //$supprimer =$connexion->query('DELETE FROM `HackMMO-Joueur` WHERE `Pseudo` = '.$_POST["delJoueur"].'');
+	$supprimer =$connexion->prepare('DELETE FROM `HackMMO-Joueur` WHERE `Pseudo` = ?');
+	$supprimer->execute(array(htmlspecialchars($_POST["delJoueur"])));
 
   echo "Le joueur est bien supprimer du systeme";
 }
