@@ -187,7 +187,7 @@ function miseajourJoueur(){
 		htmlspecialchars($_POST["Informations_Sup"]),
 		htmlspecialchars($_POST["Nom_De_Guilde"]),
 		htmlspecialchars($_POST["Blason_Guilde"])
-	))
+	));
 
 if ($ajout == FALSE){
       exit('erreur');//echec envoie
