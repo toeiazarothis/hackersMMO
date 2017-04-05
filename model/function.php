@@ -31,6 +31,25 @@ function listeDeToutLesJoueurs () {
 	return $texte;
 }
 
+//Retourne les info d'un joueur au format Json
+function jsonJoueur($pseudo){
+	$bdd = connectionDB();
+	$reponse = $bdd->prepare("SELECT * FROM `HackMMO-Joueur` WHERE `Pseudo` = ?");
+	$reponse->execute(array(htmlspecialchars($pseudo)));
+
+	$data = $reponse->fetch();
+
+	return json_encode(array(
+		'Pseudo' => $data['Pseudo'],
+		'IP' => $data['IP'],
+		'Reputation' => $data['Reputation'],
+		'Rang_Special' => $data['Rang_Special'],
+		'Informations_Sup' => $data['Informations_Sup'],
+		'Blason_Guilde' => $data['Blason_Guilde'],
+		'Nom_De_Guilde' => $data['Nom_De_Guilde'],
+	));
+}
+
 // condition permettant de lancer la fonction showFormulaireForMajEleveForAdmin
 if (isset ($_POST['formulaire_joueur_for_maj'])) {
 	echo showFormulaireForMajJoueurForAdmin ($_POST['formulaire_joueur_for_maj']);
