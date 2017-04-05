@@ -96,15 +96,19 @@ function showFormulaireForMajJoueurForAdmin ($Player) {
 function ajoutJoueurs (){
   $connexion = connectionDB();
 
-  $ajout = $connexion->exec('INSERT INTO `HackMMO-Joueur`
-    (`Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
-    VALUES ("'.$_POST["Pseudo"].'",
-            "'.$_POST["IP"].'",
-            "'.$_POST["Reputation"].'",
-            "'.$_POST["Rang_Special"].'",
-            "'.$_POST["Informations_Sup"].'",
-            "'.$_POST["Nom_De_Guilde"].'",
-            "'.$_POST["Blason_Guilde"].'")');
+		$ajout = $connexion->prepare('INSERT INTO `HackMMO-Joueur`
+		   (`Pseudo`, `IP`, `Reputation`, `Rang_Special`, `Informations_Sup`, `Nom_De_Guilde`, `Blason_Guilde`)
+		   VALUES (?, ?, ?, ?, ?, ?, ?)');
+
+		$ajout->execute(array(
+			htmlspecialchars($_POST["Pseudo"]),
+			htmlspecialchars($_POST["IP"]),
+			htmlspecialchars($_POST["Reputation"]),
+			htmlspecialchars($_POST["Rang_Special"]),
+			htmlspecialchars($_POST["Informations_Sup"]),
+			htmlspecialchars($_POST["Nom_De_Guilde"]),
+			htmlspecialchars($_POST["Blason_Guilde"])
+		));
 
   if ($ajout == FALSE){
         exit('erreur');//echec envoie
