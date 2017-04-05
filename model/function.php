@@ -22,8 +22,8 @@ function listeJoueurs(){
 // fonction pour afficher la liste des classes
 function listeDeToutLesJoueurs () {
 	$connexion = connectionDB();
-	$reponse = $connexion->query("SELECT Pseudo FROM `HackMMO-Joueur`");
-	$texte = '<option value="">Selectionner un joueur</option>';
+	$reponse = $connexion->query("SELECT `Pseudo` FROM `HackMMO-Joueur`");
+	$texte = '<option value="" selected>Selectionner un joueur</option>';
 	while ($donnees = $reponse->fetch())
 	{
 		$texte .= '<option value="'.$donnees['Pseudo'].'">'.$donnees['Pseudo'].'</option>';
