@@ -241,5 +241,4 @@ function supprimerJoueur(){
     </div>
   </header>';
 }
-}
 ?>

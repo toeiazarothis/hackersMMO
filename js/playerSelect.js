@@ -30,8 +30,8 @@ document.getElementById("playerSelect").onchange = function(){
 					set("playerSelect-table-reputation", parsed.Reputation);
 					set("playerSelect-table-rang_particulier", parsed.Rang_Special);
 					set("playerSelect-table-information_bonus", parsed.Informations_Sup);
-					set("playerSelect-table-nom_de_guilde", parsed.Blason_Guilde);
-					set("playerSelect-table-blason_guilde", parsed.Nom_De_Guilde);
+					set("playerSelect-table-nom_de_guilde", parsed.Nom_De_Guilde);
+					set("playerSelect-table-blason_guilde", parsed.Blason_Guilde);
 				}
 
     });
