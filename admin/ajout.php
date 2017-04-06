@@ -80,19 +80,19 @@
                   <div class="form-group">
                 		<label for="name" class="col-sm-2 control-label">Pseudo</label>
                 		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Pseudo" name="Pseudo" placeholder="Pseudo" value="" required="">
+                			<input type="text" class="form-control" id="Pseudo" name="Pseudo" placeholder="Pseudo du joueur" value="" required="">
                 		</div>
                 	</div>
                   <div class="form-group">
                 		<label for="name" class="col-sm-2 control-label">IP</label>
                 		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="IP" name="IP" placeholder="IP" value="" required="">
+                			<input type="text" class="form-control" id="IP" name="IP" placeholder="IP du joueur" value="" required="">
                 		</div>
                 	</div>
                   <div class="form-group">
                 		<label for="name" class="col-sm-2 control-label">Reputation</label>
                 		<div class="col-sm-10">
-                			<input type="number" class="form-control" id="Reputation" name="Reputation" placeholder="Reputation" value="" required="">
+                			<input type="number" class="form-control" id="Reputation" name="Reputation" placeholder="Reputation du joueur" value="" required="">
                 		</div>
                 	</div>
                 	<div class="form-group">
@@ -143,11 +143,17 @@
                   <div class="form-group">
                 		<label for="name" class="col-sm-2 control-label">IP</label>
                 		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="IP" name="IP" placeholder="IP" value="" required="">
+                			<input type="text" class="form-control" id="IP" name="IP" placeholder="IP de la guilde" value="" required="">
                 		</div>
                 	</div>
                   <div class="form-group">
-                		<label for="name" class="col-sm-2 control-label">Guilde</label>
+                		<label for="name" class="col-sm-2 control-label">Nom Guilde</label>
+                		<div class="col-sm-10">
+                			<input type="text" class="form-control" id="Nom_De_Guilde" name="Nom_De_Guilde" placeholder="Nom complet de la Guilde" value="" required="">
+                		</div>
+                	</div>
+                  <div class="form-group">
+                		<label for="name" class="col-sm-2 control-label">Abrevation Guilde</label>
                 		<div class="col-sm-10">
                 			<input type="text" class="form-control" id="Blason_Guilde" name="Blason_Guilde" placeholder="Abreviations de la Guilde" value="" required="">
                 		</div>
@@ -155,13 +161,13 @@
                 	<div class="form-group">
                 		<label for="email" class="col-sm-2 control-label">Leader</label>
                 		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Leader" name="Leader" placeholder="Leader" value="" required="">
+                			<input type="text" class="form-control" id="Leader" name="Leader" placeholder="Nom du Leader" value="" required="">
                 		</div>
                 	</div>
                   <div class="form-group">
                 		<label for="name" class="col-sm-2 control-label">Co-Leader</label>
                 		<div class="col-sm-10">
-                			<input type="text" class="form-control" id="Co-Leader" name="Co-Leader" placeholder="Co-Leader" value="" required="">
+                			<input type="text" class="form-control" id="Co-Leader" name="Co-Leader" placeholder="Nom du Co-Leader" value="" required="">
                 		</div>
                 	</div>
                   <div class="form-group">
@@ -179,8 +185,7 @@
                 </form>
               </div>
             </div>
-
-
+            
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ function listeJoueurs(){
 // fonction pour afficher la liste des classes
 function listeDeToutLesJoueurs () {
 	$connexion = connectionDB();
-	$reponse = $connexion->query("SELECT `Pseudo` FROM `HackMMO-Joueur`");
+	$reponse = $connexion->query("SELECT `Pseudo` FROM `HackMMO-Joueur` ORDER BY `HackMMO-Joueur`.`Pseudo`ASC");
 	$texte = '<option value="" selected>Selectionner un joueur</option>';
 	while ($donnees = $reponse->fetch())
 	{
@@ -45,8 +45,8 @@ function jsonJoueur($pseudo){
 		'Reputation' => $data['Reputation'],
 		'Rang_Special' => $data['Rang_Special'],
 		'Informations_Sup' => $data['Informations_Sup'],
+    'Nom_De_Guilde' => $data['Nom_De_Guilde'],
 		'Blason_Guilde' => $data['Blason_Guilde'],
-		'Nom_De_Guilde' => $data['Nom_De_Guilde'],
 	));
 }
 
@@ -231,6 +231,15 @@ function supprimerJoueur(){
 	$supprimer =$connexion->prepare('DELETE FROM `HackMMO-Joueur` WHERE `Pseudo` = ?');
 	$supprimer->execute(array(htmlspecialchars($_POST["delJoueur"])));
 
-  echo "Le joueur est bien supprimer du systeme";
+  return
+  '<header class="bg bg-darkest-gray">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-heading">Le joueur est bien supprimer du systeme</div>
+        <a href="index.php" class="page-scroll btn btn-xl">Accueil</a>
+      </div>
+    </div>
+  </header>';
+}
 }
 ?>
